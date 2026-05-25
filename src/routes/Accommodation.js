@@ -43,6 +43,17 @@ router.put("/:id", async (req, res) => {
     }
 })
 
-
+router.delete("/:id", async (req, res) => {
+    try {
+        const accommodation = await Accommodation.findByIdAndDelete(req.params.id);
+        if (accommodation) {
+            res.json({ message: "Accommodation deleted" });
+        } else {
+            res.status(404).json({ message: "Accommodation not found" });
+        }
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+})
 
 module.exports = router;
