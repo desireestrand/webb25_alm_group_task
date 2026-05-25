@@ -6,8 +6,15 @@ router.post("/", async (req, res) => {
     const user = await User.create(req.body);
     res.status(201).json(user);
   } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
+  if (error.code === 11000) {
+    return res.status(400).json({
+      message: "Email already exists",
+    });
+    }
+    res.status(400).json({
+    message: error.message,
+  });
+}
 });
 
 router.get("/", async (req, res) => {
