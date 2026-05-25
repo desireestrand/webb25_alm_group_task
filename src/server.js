@@ -8,6 +8,7 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 
 app.use("/users", UserRouter);
+app.use("/accommodations", require("./routes/Accommodation"));
 
 connectDB().then(() => {
   app.listen(port, () => {
