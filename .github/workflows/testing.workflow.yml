@@ -1,12 +1,11 @@
-# TODO: Add workflow to run tests on push and pull requests to main
 name: Run Tests to Main
 
 on: 
   push: 
     branches: 
       - main
-    pull_request:
-      branches:
+  pull_request:
+    branches:
       - main
 
 jobs:
