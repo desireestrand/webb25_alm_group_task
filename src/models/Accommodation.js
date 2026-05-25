@@ -25,21 +25,23 @@ const accommodationSchema = new mongoose.Schema(
     rent: {
       type: Number,
       required: [true, "Rent is required"],
-      min: 0,
+      min: [0, "Rent can't be a negative number"],
     },
     rooms: {
       type: Number,
       required: [true, "Rooms is required"],
-      min: 1,
-      max: 50,
+      min: [1, "Rooms has to be more than 0"],
+      max: [50, "Rooms can't be more than 50"],
     },
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: [true, "User reference is required"],
+      required: [true, "User ID is required"],
     },
   },
   { timestamps: true },
 );
 
-module.exports = mongoose.model("Accommodation", accommodationSchema);
+module.exports =
+  mongoose.models.Accommodation ||
+  mongoose.model("Accommodation", accommodationSchema);
