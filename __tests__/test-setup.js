@@ -1,6 +1,5 @@
 const { MongoMemoryServer } = require("mongodb-memory-server");
 const mongoose = require("mongoose");
-const { beforeAll, afterAll, afterEach } = require("vitest");
 
 let mongoServer;
 
@@ -11,6 +10,7 @@ beforeAll(async () => {
 
 afterEach(async () => {
   const collections = mongoose.connection.collections;
+
   for (const key in collections) {
     await collections[key].deleteMany({});
   }
