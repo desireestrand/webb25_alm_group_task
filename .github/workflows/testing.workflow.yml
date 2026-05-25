@@ -21,6 +21,6 @@ jobs:
         run: npm install
       - name: Set up environment variables using Secrets
         run: |
-          echo "MONGODB_URI=${{ secrets.MONODB_URI }}" >> $GITHUB_ENV
+          echo "MONGODB_URI=${{ secrets.MONGODB_URI }}" >> $GITHUB_ENV
       - name: Run tests
         run: npm run test
