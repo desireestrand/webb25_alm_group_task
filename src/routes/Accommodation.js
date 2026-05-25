@@ -1,5 +1,5 @@
-const Accommodation = required("./models/Accommodation");
-const router =required("express").Router();
+const Accommodation = require("../models/Accommodation");
+const router = require("express").Router();
 
 router.post("/", async (req, res) => {
     try {
