@@ -32,6 +32,17 @@ router.get("/:id", async (req, res) => {
     }
 });
 
+router.put("/:id", async (req, res) => {
+    try {
+        const accommodation = await Accommodation.findByIdAndUpdate(req.params.id, req.body, {
+            new: true,
+            runValidators: true,
+        });
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+})
+
 
 
 module.exports = router;
