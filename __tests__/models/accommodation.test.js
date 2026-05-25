@@ -1,8 +1,8 @@
-require("../test-setup.js");
-const { describe, it, expect } = require("vitest");
-const mongoose = require("mongoose");
-const Accommodation = require("../../src/models/Accommodation.js");
-const User = require("../../src/models/User.js");
+import "../test-setup.js";
+import { describe, it, expect } from "vitest";
+import mongoose from "mongoose";
+import Accommodation from "../../src/models/Accommodation.js";
+import User from "../../src/models/User.js";
 
 describe("Accommodation Model", () => {
   it("creates a valid accommodation", async () => {
