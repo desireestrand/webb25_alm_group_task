@@ -6,6 +6,10 @@ let mongoServer;
 beforeAll(async () => {
   mongoServer = await MongoMemoryServer.create();
   await mongoose.connect(mongoServer.getUri());
+
+  await Promise.all(
+    Object.values(mongoose.models).map((model) => model.init()),
+  );
 });
 
 afterEach(async () => {
