@@ -1,5 +1,4 @@
-require("../../test-setup");
-const { describe, it, expect } = require("vitest");
+require("../test-setup");
 const User = require("../../src/models/User");
 const Accommodation = require("../../src/models/Accommodation");
 
