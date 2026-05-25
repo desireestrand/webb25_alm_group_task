@@ -19,4 +19,19 @@ router.get("/", async (req, res) => {
     }
 })
 
+router.get("/:id", async (req, res) => {
+    try {
+        const accommodation = await Accommodation.findById(req.params.id);
+        if (accommodation) {
+            res.json(accommodation);
+        } else {
+            res.status(404).json({ message: "Accommodation not found" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+
+
 module.exports = router;
